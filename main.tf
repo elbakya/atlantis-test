@@ -1,5 +1,10 @@
 
-provider "aws" {}
+provider "aws" {
+  assume_role {
+    role_arn     = "arn:aws:iam::177172943105:role/FullAccessToEC2"
+    session_name = "SESSION_NAME"
+  }
+}
 
 
 data "aws_availability_zone" "example" {
