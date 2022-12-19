@@ -1,5 +1,9 @@
 
-provider "aws" {}
+provider "aws" {
+assume_role {
+    role_arn     = "arn:aws:iam::177172943105:user/TerraformUser"
+  }
+}
 
 
 data "aws_availability_zone" "example" {
