@@ -23,7 +23,7 @@ resource "aws_instance" "Public_EC2" {
   availability_zone           = data.aws_availability_zone.example.name
   instance_type               = "t2.micro"
   associate_public_ip_address = true
-  user_data                   = file("./local-setup.sh")
+  #user_data                   = file("./local-setup.sh")
 
   tags = {
     Name = "Ec2-with-atlantis"
