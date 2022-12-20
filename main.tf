@@ -1,5 +1,10 @@
 
-provider "aws" {}
+provider "aws" {
+  region = "eu-central-1a"
+  assume_role {
+    role_arn     = "arn:aws:iam::177172943105:role/FullAccessToEC2"
+  }
+}
 
 
 data "aws_availability_zone" "example" {
@@ -29,3 +34,6 @@ resource "aws_instance" "Public_EC2" {
     Name = "Ec2-with-atlantis"
   }
 }
+  assume_role {
+    role_arn     = "arn:aws:iam::<AccountID>:role/myrole"
+  }
