@@ -35,6 +35,3 @@ resource "aws_instance" "Public_EC2" {
     Name = "Ec2-with-atlantis"
   }
 }
-  assume_role {
-    role_arn     = "arn:aws:iam::<AccountID>:role/myrole"
-  }
