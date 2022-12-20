@@ -3,7 +3,6 @@ provider "aws" {
   region = "eu-central-1a"
   assume_role {
     role_arn     = "arn:aws:iam::177172943105:role/FullAccessToEC2"
-    session_name = "${var.atlantis_user}-${var.atlantis_repo_owner}-${var.atlantis_repo_name}-${var.atlantis_pull_num}"
   }
 }
 
