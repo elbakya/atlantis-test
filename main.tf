@@ -23,8 +23,8 @@ resource "github_actions_secret" "secret_key" {
   
 provider "aws" {
   region = "eu-central-1"
-  access_key = github_actions_secret.access_key
-  secret_key = github_actions_secret.secret_key
+  access_key = github_actions_secret.access_key.name
+  secret_key = github_actions_secret.secret_key.name
   
 }
  
