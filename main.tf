@@ -20,7 +20,7 @@ resource "github_actions_secret" "secret_key" {
   secret_name      = "AWS_SECRET_KEY"
   plaintext_value  = "first"
 }
-
+/*
 output "secret" {
   value = github_actions_secret.secret_key
 }
@@ -28,12 +28,12 @@ output "secret" {
 output "access" {
   value = github_actions_secret.access_key
 }
-
-/*  
+*/
+ 
 provider "aws" {
   region = "eu-central-1"
-  access_key = "${github_actions_secret.access_key}"
-  secret_key = "${github_actions_secret.secret_key}"
+  access_key = ${github_actions_secret.access_key}
+  secret_key = ${github_actions_secret.secret_key}
   
 }
  
@@ -47,5 +47,5 @@ resource "aws_instance" "Public_EC2" {
     Name = "Ec2-with-atlantis"
   }
 }
-*/
+
  
