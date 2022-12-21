@@ -22,11 +22,11 @@ resource "github_actions_secret" "secret_key" {
 }
 
 output "secret" {
-  value = github_actions_secret.secret_key.value
+  value = github_actions_secret.secret_key
 }
 
 output "access" {
-  value = github_actions_secret.access_key.name
+  value = github_actions_secret.access_key
 }
 
 /*  
