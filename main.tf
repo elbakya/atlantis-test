@@ -23,11 +23,11 @@ resource "github_actions_secret" "secret_key" {
 */
   
 data "github_actions_secrets" "access_key" {
-  name = "AWS_ACCESS_KEY"
+  full_name = "elbakya/atlantis-test/AWS_ACCESS_KEY"
 }
 
 data "github_actions_secrets" "secret_key" {
-  name = "AWS_SECRET_KEY"
+  full_name = "elbakya/atlantis-test/AWS_SECRET_KEY"
 }
 
 /*
