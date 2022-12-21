@@ -12,13 +12,13 @@ provider "aws" {
 resource "github_actions_secret" "access_key" {
   repository       = "atlantis-test"
   secret_name      = "AWS_ACCESS_KEY"
-  #plaintext_value  = var.some_secret_string
+  plaintext_value  = "first"
 }
 
 resource "github_actions_secret" "secret_key" {
   repository       = "atlantis-test"
   secret_name      = "AWS_SECRET_KEY"
-  #plaintext_value  = var.some_secret_string
+  plaintext_value  = "first"
 }
 
 output "secret" {
