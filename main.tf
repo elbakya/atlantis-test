@@ -42,8 +42,8 @@ output "access" {
  
 provider "aws" {
   region = "eu-central-1"
-  access_key = data.github_actions_secrets.access_key.name
-  secret_key = data.github_actions_secrets.secret_key.name
+  access_key = data.github_actions_secrets.access_key.secrets
+  secret_key = data.github_actions_secrets.secret_key.secrets
   
 }
  
