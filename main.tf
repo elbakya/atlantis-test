@@ -1,4 +1,4 @@
-
+/*
 provider "aws" {
   region = "eu-central-1"
   skip_credentials_validation = true
@@ -7,22 +7,27 @@ provider "aws" {
   access_key                  = "mock_access_key"
   secret_key                  = "mock_secret_key"
 }
-/*
-variable "aws_secret_key" {
-  type = string
+*/
+  
+resource "github_actions_secret" "access_key" {
+  repository       = "atlantis-test"
+  secret_name      = "AWS_ACCESS_KEY"
+  #plaintext_value  = var.some_secret_string
 }
 
-variable "aws_access_key" {
-  type = string
+resource "github_actions_secret" "secret_key" {
+  repository       = "atlantis-test"
+  secret_name      = "AWS_SECRET_KEY"
+  #plaintext_value  = var.some_secret_string
 }
   
 provider "aws" {
   region = "eu-central-1"
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
+  access_key = github_actions_secret.access_key
+  secret_key = github_actions_secret.secret_key
   
 }
-  */
+ 
 resource "aws_instance" "Public_EC2" {
     ami = "ami-0a261c0e5f51090b1"
     availability_zone = "eu-central-1a"
