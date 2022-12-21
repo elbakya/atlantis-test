@@ -12,23 +12,21 @@ provider "aws" {
 resource "github_actions_secret" "access_key" {
   repository       = "atlantis-test"
   secret_name      = "AWS_ACCESS_KEY"
-  sensitive        = true
   #plaintext_value  = var.some_secret_string
 }
 
 resource "github_actions_secret" "secret_key" {
   repository       = "atlantis-test"
   secret_name      = "AWS_SECRET_KEY"
-  sensitive        = true
   #plaintext_value  = var.some_secret_string
 }
 
 output "secret" {
-  value = "${github_actions_secret.secret_key}"
+  value = github_actions_secret.secret_key.value
 }
 
 output "access" {
-  value = "${github_actions_secret.access_key}"
+  value = github_actions_secret.access_key.name
 }
 
 /*  
