@@ -7,7 +7,7 @@ provider "aws" {
   access_key                  = "mock_access_key"
   secret_key                  = "mock_secret_key"
 }
-*/
+
   
 resource "github_actions_secret" "access_key" {
   repository       = "atlantis-test"
@@ -20,6 +20,16 @@ resource "github_actions_secret" "secret_key" {
   secret_name      = "AWS_SECRET_KEY"
   plaintext_value  = "first"
 }
+*/
+  
+data "github_actions_secrets" "access_key" {
+  name = "AWS_ACCESS_KEY"
+}
+
+data "github_actions_secrets" "secret_key" {
+  name = "AWS_SECRET_KEY"
+}
+
 /*
 output "secret" {
   value = github_actions_secret.secret_key
@@ -32,8 +42,8 @@ output "access" {
  
 provider "aws" {
   region = "eu-central-1"
-  access_key = github_actions_secret.access_key
-  secret_key = github_actions_secret.secret_key
+  access_key = data.github_actions_secrets.access_key.name
+  secret_key = data.github_actions_secrets.secret_key.name
   
 }
  
