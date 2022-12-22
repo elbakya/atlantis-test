@@ -2,6 +2,6 @@ version: 3
 parallel_plan: true
 parallel_apply: true
 projects:
-- dir: ./*
+- dir: .
   autoplan:
     enabled: false
