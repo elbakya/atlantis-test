@@ -3,6 +3,7 @@ automerge: true
 delete_source_branch_on_merge: true
 parallel_plan: true
 parallel_apply: true
+allow_custom_workflows: true
 workflows:
   myworkflow:
     plan:
