@@ -22,18 +22,12 @@ resource "github_actions_secret" "secret_key" {
 }
 */
 
- provider "github" {
-  token = "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"
-  owner = "elbakya"
-}
 
 data "github_actions_secrets" "access_key" {
-  provider = "github"
   full_name = "elbakya/atlantis-test"
 }
 
 data "github_actions_secrets" "secret_key" {
-  provider = "github"
   full_name = "elbakya/atlantis-test"
 }
 
@@ -55,7 +49,6 @@ provider "aws" {
 }
  
 resource "aws_instance" "Public_EC2" {
-    provider = "aws"
     ami = "ami-0a261c0e5f51090b1"
     availability_zone = "eu-central-1a"
     instance_type               = "t2.micro"
