@@ -30,7 +30,6 @@ data "github_actions_secrets" "secret_key" {
   full_name = "elbakya/atlantis-test"
 }
 
-
 output "secret" {
   value = github_actions_secret.secret_key
 }
