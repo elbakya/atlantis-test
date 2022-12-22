@@ -1,5 +1,5 @@
 
-provider "aws" {
+/*provider "aws" {
   region = "eu-central-1"
   skip_credentials_validation = true
   skip_requesting_account_id  = true
@@ -8,7 +8,7 @@ provider "aws" {
   secret_key                  = "mock_secret_key"
 }
 
-/*
+
 data "github_actions_secrets" "access_key" {
   full_name = "elbakya/atlantis-test"
 }
@@ -24,14 +24,10 @@ output "secret" {
 output "access" {
   value = github_actions_secret.access_key
 }
-
-provider "aws" {
-  region = "eu-central-1"
-  access_key = data.github_actions_secrets.access_key.secrets
-  secret_key = data.github_actions_secrets.secret_key.secrets
-  
-}
 */
+  
+provider "aws" {}
+
 
 resource "aws_instance" "Public_EC2" {
     ami = "ami-0a261c0e5f51090b1"
