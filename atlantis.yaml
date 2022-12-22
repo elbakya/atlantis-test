@@ -1,8 +1,3 @@
 version: 3
-projects:
-  - name: poc
-    dir: .
-    workspace: poc
-    workflow: poc
-    autoplan:
-      enabled: true
+parallel_plan: true
+parallel_apply: true
