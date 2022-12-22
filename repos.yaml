@@ -25,17 +25,3 @@ workflows:
       - plan:
           extra_args: ["-var-file=tfvars/$WORKSPACE.tfvars"]
 
-    apply:
-      steps:
-      - env:
-          name: AWS_SECRET_KEY_ID
-          command: echo "${COMMENT_ARGS%%,*}"
-      - env:
-          name: AWS_SECRET_ACCESS_KEY
-          command: echo "${COMMENT_ARGS##*,}" 
-      - env:
-          name: TF_WORKSPACE
-          command: echo $WORKSPACE
-      - apply
-
-
