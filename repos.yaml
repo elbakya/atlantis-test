@@ -22,21 +22,14 @@ workflows:
     apply:
       steps:
       - env:
+          name: AWS_SECRET_KEY_ID
+          command: echo "${COMMENT_ARGS%%,*}"
+      - env:
+          name: AWS_SECRET_ACCESS_KEY
+          command: echo "${COMMENT_ARGS##*,}" 
+      - env:
           name: TF_WORKSPACE
           command: echo $WORKSPACE
       - apply
-  
-  terragrunt:
-    plan:
-      steps:
-      - env:
-          name: TF_WORKSPACE
-          command: echo $WORKSPACE
-      - run: terragrunt plan -input=false -no-color
 
-    apply:
-      steps:
-      - env:
-          name: TF_WORKSPACE
-          command: echo $WORKSPACE
-      - run: terragrunt apply -input=false -no-color
+
