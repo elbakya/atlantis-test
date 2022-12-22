@@ -21,7 +21,12 @@ resource "github_actions_secret" "secret_key" {
   plaintext_value  = "first"
 }
 */
-  
+
+ provider "github" {
+  token = "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"
+  owner = "elbakya"
+}
+
 data "github_actions_secrets" "access_key" {
   full_name = "elbakya/atlantis-test"
 }
