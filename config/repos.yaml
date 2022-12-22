@@ -13,7 +13,7 @@ workflows:
           command: echo $WORKSPACE
       - init
       - plan:
-          extra_args: ["-var-file=tfvars/$WORKSPACE.tfvars"]
+          #extra_args: ["-var-file=tfvars/$WORKSPACE.tfvars"]
 
     apply:
       steps:
