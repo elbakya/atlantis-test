@@ -1,4 +1,4 @@
-
+/*
 provider "aws" {
   region = "eu-central-1"
   skip_credentials_validation = true
@@ -8,7 +8,6 @@ provider "aws" {
   secret_key                  = "mock_secret_key"
 }
 
-/*
 resource "github_actions_secret" "access_key" {
   repository       = "atlantis-test"
   secret_name      = "AWS_ACCESS_KEY"
@@ -20,7 +19,7 @@ resource "github_actions_secret" "secret_key" {
   secret_name      = "AWS_SECRET_KEY"
   plaintext_value  = "first"
 }
-
+*/
 
 data "github_actions_secrets" "access_key" {
   full_name = "elbakya/atlantis-test"
@@ -29,7 +28,7 @@ data "github_actions_secrets" "access_key" {
 data "github_actions_secrets" "secret_key" {
   full_name = "elbakya/atlantis-test"
 }
-
+/*
 output "secret" {
   value = github_actions_secret.secret_key
 }
@@ -37,7 +36,7 @@ output "secret" {
 output "access" {
   value = github_actions_secret.access_key
 }
-
+*/
  
 provider "aws" {
   region = "eu-central-1"
@@ -45,7 +44,7 @@ provider "aws" {
   secret_key = data.github_actions_secrets.secret_key.secrets
   
 }
-*/
+
 resource "aws_instance" "Public_EC2" {
     ami = "ami-0a261c0e5f51090b1"
     availability_zone = "eu-central-1a"
