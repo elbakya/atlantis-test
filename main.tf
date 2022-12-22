@@ -22,7 +22,6 @@ resource "github_actions_secret" "secret_key" {
 }
 */
 
-
 data "github_actions_secrets" "access_key" {
   full_name = "elbakya/atlantis-test"
 }
