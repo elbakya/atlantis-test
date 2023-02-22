@@ -16,3 +16,4 @@ resource "github_repository" "example" {
   description = "This is an example repository created by Terraform."
   visibility = "public"
 }
+
